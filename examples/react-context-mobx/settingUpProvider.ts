@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect } from "react";
-import AppRouter from "./src/router/AppRouter";
-import stores, { storesContext } from "./src/mobx/storesIndex";
+import stores, { storesContext } from "./stores";
 
-export default function ContextWrapper() {
+export default function ContextWrapper({ children }) {
 
   return (
       <storesContext.Provider value={stores}>
-        <ChildComponent />
+        {children}
       </storesContext.Provider>
   );
 }
